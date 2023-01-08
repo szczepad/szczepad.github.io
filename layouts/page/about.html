@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ $asset := resources.Get "dennis_szczepanski.jpg" }}
+{{ $img := $asset.Fit "300x400" }}
+<!-- Main Content -->
+<style>
+  .parent {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+  }
+</style>
+
+  <h1>{{ .Title }}</h1>
+
+  <div class="parent">
+    <div>
+      <img src="{{ $img.RelPermalink }}" />
+    </div>
+    <div style="margin-left: 15px;">{{ .Content }}</div>
+  </div>
+{{ end }}
